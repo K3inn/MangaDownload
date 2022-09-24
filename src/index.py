@@ -1,9 +1,10 @@
 from manga import Mangayabu
 from time import sleep
 from os import system
+import platform
 
 MENU = ["--- MENU ---", "[1] PROCURAR MANGÁ", "[2] BAIXAR", "[3] INFORMAÇÃO", "[4] CONFIGURAR DIRETORIO", "[5] ENCERRAR"]
-
+CLEAR = ''
 def Infos(Engine, json_Data):
     anime = []
     anime.append(Engine.GetNome(json_Data))
@@ -33,6 +34,9 @@ def main():
     Manga_engine = Mangayabu()
     data = [-1, '']
     diretorio = ''
+    if(platform.system() == 'Windows'): CLEAR = 'cls'
+    else: CLEAR = 'clear'
+
     while True != 4:
         for i in MENU:
             print(i)
@@ -45,7 +49,7 @@ def main():
                 data[0] = 0
                 data[1] = resposta
                 sleep(5)
-                system("clear")
+                system(CLEAR)
 
         elif input_usuario == 2:
             if data[0] != -1 and diretorio != '':
