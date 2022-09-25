@@ -17,24 +17,19 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 ## 🚀 Instalando <Manga Download>
 
-Para instalar o <nome_do_projeto>, siga estas etapas:
+Para instalar o <Manga Download>, siga estas etapas:
 
-Linux e macOS:
-```
-<comando_de_instalação>
-```
-
-Windows:
+Windows & Linux:
 
 Primeiro clone o projeto para seu computador
 ```
-<git clone https://github.com/K3inn/MangaDownload>
+git clone https://github.com/K3inn/MangaDownload
 ```
 
 Depois instale os pacotes necessarios
 ```
-<pip install requests>
-<pip install beautifulsoup4>
+pip install requests
+pip install beautifulsoup4
 ```
 
 ## ☕ Usando <Manga Download>
@@ -43,12 +38,12 @@ Para usar <Manga Download> siga estas etapas:
 
 Entre nas pasta aonde está o arquivo <index.py>
 
-E execute o comando ( Windows ):
+( Windows ):
 ```
-<python index.py>
+python index.py
 ```
 
 ( Linux )
 ```
-<python3 index.py>
+python3 index.py
 ```
