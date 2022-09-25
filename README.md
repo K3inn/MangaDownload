@@ -5,27 +5,17 @@
 
 <img src="exemplo-image.png" alt="exemplo imagem">
 
-> Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
+> Um simples programa em python, para fazer o download de mangás
 
 ### Ajustes e melhorias
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [x] Tarefa 1
-- [x] Tarefa 2
-- [x] Tarefa 3
-- [ ] Tarefa 4
-- [ ] Tarefa 5
+- [ ] Melhorar o sistema de Salvamento
+- [ ] Otimização do Código
+- [ ] Interface Gráfica
 
-## 💻 Pré-requisitos
-
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
-<!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
-* Você instalou a versão mais recente de `<linguagem / dependência / requeridos>`
-* Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
-* Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
-
-## 🚀 Instalando <nome_do_projeto>
+## 🚀 Instalando <Manga Download>
 
 Para instalar o <nome_do_projeto>, siga estas etapas:
 
@@ -35,14 +25,30 @@ Linux e macOS:
 ```
 
 Windows:
+
+Primeiro clone o projeto para seu computador
 ```
-<comando_de_instalação>
+<git clone https://github.com/K3inn/MangaDownload>
 ```
 
-## ☕ Usando <nome_do_projeto>
-
-Para usar <nome_do_projeto>, siga estas etapas:
-
+Depois instale os pacotes necessarios
 ```
-<exemplo_de_uso>
+<pip install requests>
+<pip install beautifulsoup4>
+```
+
+## ☕ Usando <Manga Download>
+
+Para usar <Manga Download> siga estas etapas:
+
+Entre nas pasta aonde está o arquivo <index.py>
+
+E execute o comando ( Windows ):
+```
+<python index.py>
+```
+
+( Linux )
+```
+<python3 index.py>
 ```
