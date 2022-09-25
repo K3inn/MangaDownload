@@ -20,11 +20,11 @@ def Buscar_Anime(Engine, nome):
         return json_Data
     return -1
 
-def Baixar(Engine, json_Data, capitulo):
+def Baixar(Engine, json_Data, capitulo, diretorio):
     link = Engine.GetCapitulo(capitulo, json_Data)
 
     if link != -1:
-        download_resultado = Engine.Download(link, '/home/sirkinn/Documentos/Projetos/Python/Teste ')
+        download_resultado = Engine.Download(link, diretorio)
         if download_resultado != -1:
             print("[ ENGINE ] CONCLUÍDO")
         else:
@@ -54,7 +54,7 @@ def main():
         elif input_usuario == 2:
             if data[0] != -1 and diretorio != '':
                 capitulo = int(input("\nCapitulo >> "))
-                Baixar(Manga_engine, data[1], capitulo)
+                Baixar(Manga_engine, data[1], capitulo, diretorio)
                 sleep(5)
                 print("\n")
             else:print("Oops, Você ainda não buscou uma Mangá /ou não definiu um diretorio\n")
