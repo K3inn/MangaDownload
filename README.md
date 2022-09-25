@@ -3,7 +3,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/K3inn/MangaDownload)
 ![GitHub language count](https://img.shields.io/github/languages/count/K3inn/MangaDownload)
 
-<img src="exemplo-image.png" alt="exemplo imagem">
+<img src="https://drive.google.com/file/d/1QCO9s-CfSUarvROMZ_QuL8k5IYTxVYhW/view?usp=sharing" alt="exemplo imagem">
 
 > Um simples programa em python, para fazer o download de mangás
 
