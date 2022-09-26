@@ -1,4 +1,4 @@
-# Manga Download [PT - BR]
+# Mangá Download [PT - BR]
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/K3inn/MangaDownload)
 ![GitHub language count](https://img.shields.io/github/languages/count/K3inn/MangaDownload)
@@ -15,9 +15,9 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [ ] Otimização do Código
 - [ ] Interface Gráfica
 
-## 🚀 Instalando <Manga Download>
+## 🚀 Instalando <Mangá Download>
 
-Para instalar o <Manga Download>, siga estas etapas:
+Para instalar o <Mangá Download>, siga estas etapas:
 
 Windows & Linux:
 
@@ -32,9 +32,9 @@ pip install requests
 pip install beautifulsoup4
 ```
 
-## ☕ Usando <Manga Download>
+## ☕ Usando <Mangá Download>
 
-Para usar <Manga Download> siga estas etapas:
+Para usar <Mangá Download> siga estas etapas:
 
 Entre nas pasta aonde está o arquivo <index.py>
 
