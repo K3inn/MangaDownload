@@ -19,7 +19,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 Para instalar o <Mangá Download>, siga estas etapas:
 
-Windows & Linux:
+Windows, Linux  &  Android(termux):
 
 Primeiro clone o projeto para seu computador
 ```
@@ -43,7 +43,7 @@ Entre nas pasta aonde está o arquivo <index.py>
 python index.py
 ```
 
-( Linux )
+( Linux / Android)
 ```
 python3 index.py
 ```
