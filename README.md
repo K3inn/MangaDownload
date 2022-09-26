@@ -34,6 +34,8 @@ pip install beautifulsoup4
 
 *PARA TERMUX, CONSIDERE INSTALAR ANTES*
 ```
+apt update && apt upgrade
+
 apt install git
 apt install python3
 ```
