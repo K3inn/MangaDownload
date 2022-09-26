@@ -32,6 +32,12 @@ pip install requests
 pip install beautifulsoup4
 ```
 
+*PARA TERMUX, CONSIDERE INSTALAR ANTES*
+```
+apt install git
+apt install python3
+```
+
 ## ☕ Usando <Mangá Download>
 
 Para usar <Mangá Download> siga estas etapas:
