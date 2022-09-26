@@ -1,5 +1,7 @@
 import requests
 import json
+import os
+import controlador_json
 from bs4 import BeautifulSoup
 
 class Mangayabu:
@@ -12,6 +14,22 @@ class Mangayabu:
             return resposta
         return -1
 
+    def __Salvar_Anime(self, bytes, capitulo, caminho=False):
+        for i in bytes:
+            img = self.__Request_Anime(bytes[i])
+            if(caminho != False):
+                caminho_para_salvar = f'{caminho}/{self.GetNome()}_{capitulo}/{i}.jpeg'
+                print(caminho)
+                print(caminho_para_salvar)
+            else:
+                caminho_para_salvar = f"{controlador_json.Pegar_diretorio(self.json_obj['chapter_name'])}/{self.json_obj['chapter_name']}_{capitulo}/{i}.jpeg"
+                if caminho_para_salvar == 0:
+                    caminho_para_salvar = f'./Download_Padrão/{self.GetNome()}_{capitulo}/{i}.jpeg'
+            
+            os.makedirs(os.path.dirname(caminho_para_salvar), exist_ok=True)
+            with open(caminho_para_salvar, 'wb') as arquivo:
+                arquivo.write(img.content)
+
     def Pesquisar_anime(self, nome):
         nome = nome.replace(" ", '-')
         base_url_pesqusia = "https://mangayabu.top/manga/{}/page/14/"
@@ -23,14 +41,14 @@ class Mangayabu:
 
             cadeia_de_cap_str = str(cadeia_de_cap[0])
             string_tratada = cadeia_de_cap_str[57:len(cadeia_de_cap_str)-9]
-            json_obj = json.loads(string_tratada)
+            self.json_obj = json.loads(string_tratada)
             print("[ ENGINE ] - Mangá encontrado")
-            return json_obj
+            return self.json_obj
         else:
             print("[ ENGINE ] - Mangá não encontrado")
             return -1
     
-    def Download(self, url, caminho):
+    def Download(self, url, capitulo, caminho=False):
         data_img = {}
         html_principal = self.__Request_Anime(url)
 
@@ -42,17 +60,14 @@ class Mangayabu:
                 modificador_html_2 = BeautifulSoup(str(cadeia_de_imagens[0]), 'html.parser')
                 imagens = modificador_html_2.find_all("img", {'class':'lazy'})
 
-                for img in imagens:
-                    data_img[img.get('id')] = img.get('data-src')
+                for img in imagens: data_img[img.get('id')] = img.get('data-src')
             
-                for i in data_img:
-                    img = self.__Request_Anime(data_img[i])
-                    with open(caminho+"/"+i+".jpeg", 'wb') as arquivo:
-                        arquivo.write(img.content)
+                self.__Salvar_Anime(data_img, capitulo, caminho=False)
                 print("[ ENGINE ] - Baixado com sucesso")
                 return 0
             except Exception as erro:
                 print(f"[ ENGINE ] {str(erro)}")
+                return -1
         else:
             return -1
 
@@ -61,20 +76,20 @@ class Mangayabu:
             if(cap['num'] == str(capitulo)):
                 return cap['id']
     
-    def GetNome(self, data):
-        return data['chapter_name']
+    def GetNome(self):
+        return self.json_obj['chapter_name']
     
-    def GetQtdCapitulos(self, data):
-        return data['chapters']
+    def GetQtdCapitulos(self):
+        return self.json_obj['chapters']
     
-    def GetDescricao(self, data):
-        return data['description']
+    def GetDescricao(self):
+        return self.json_obj['description']
     
-    def GetGenero(self, data):
-        return data['genres']
+    def GetGenero(self):
+        return self.json_obj['genres']
     
-    def GetCapa(self, data):
-        return data['cover']
+    def GetCapa(self):
+        return self.json_obj['cover']
 
-    def Printar(self, data):
+    def __Printar(self, data):
         print(json.dumps(data, indent=4))
