@@ -11,7 +11,7 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [ ] Melhorar o sistema de Salvamento
+- [ ] Melhorar o sistema de Salvamento [ 40% ]
 - [ ] Otimização do Código
 - [ ] Interface Gráfica
 
