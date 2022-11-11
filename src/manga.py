@@ -8,12 +8,14 @@ class Mangayabu:
     def __init__(self):
         pass
 
+    # Faz a requisição das url's
     def __Request_Anime(self, url):
         resposta = requests.get(url)
         if resposta.status_code == 200:
             return resposta
         return -1
 
+    # Processo de Salvamento
     def __Salvar_Anime(self, bytes, capitulo, caminho=False):
         for i in bytes:
             img = self.__Request_Anime(bytes[i])
@@ -58,12 +60,10 @@ class Mangayabu:
                 cadeia_de_imagens = modificador_html.find_all("div", {"class" : "section table-of-contents"})
                 
                 modificador_html_2 = BeautifulSoup(str(cadeia_de_imagens[0]), 'html.parser')
-                imagens = modificador_html_2.find_all("img", {'class':'lazy'})
+                imagens = modificador_html_2.find_all("img")
+                for img in imagens: data_img[img.get('id')] = img.get('src'); 
 
-                for img in imagens: data_img[img.get('id')] = img.get('data-src')
-            
                 self.__Salvar_Anime(data_img, capitulo, caminho=False)
-                print("[ ENGINE ] - Baixado com sucesso")
                 return 0
             except Exception as erro:
                 print(f"[ ENGINE ] {str(erro)}")
@@ -74,7 +74,7 @@ class Mangayabu:
     def GetCapitulo(self, capitulo, data):
         for cap in data["allposts"]:
             if(cap['num'] == str(capitulo)):
-                return cap['id']
+                return cap['chapters'][0]['id']
     
     def GetNome(self):
         return self.json_obj['chapter_name']

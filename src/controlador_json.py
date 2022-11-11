@@ -4,7 +4,6 @@ def Adicionar_diretorio(nome,diretorio):
     json_obj = []
     with open('./Data/diretorios.json', 'r') as arquivo:
         json_obj = json.load(arquivo)
-    
     json_obj.append({
         nome.lower() : diretorio
     })
@@ -23,3 +22,8 @@ def Pegar_diretorio(nome):
             if chave == nome.lower():
                 return nome_[chave]
     return 0
+
+def Printar_Json(data):
+    json_object = json.loads(data)
+    json_formatted_str = json.dumps(json_object, indent=2)
+    print(json_formatted_str)

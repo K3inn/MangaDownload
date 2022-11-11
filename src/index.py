@@ -23,11 +23,12 @@ def Buscar_Anime(Engine, nome):
 
 def Baixar(Engine, json_Data, capitulo, caminho):
     link = Engine.GetCapitulo(capitulo, json_Data)
-
     if link != -1:
         download_resultado = Engine.Download(link, capitulo, caminho)
+        print(download_resultado)
         if download_resultado != -1:
-            print("[ ENGINE ] CONCLUÍDO")
+            print("[ ENGINE ] - BAIXADO COM SUCESSO")
+            print("[ ENGINE ] - CONCLUÍDO")
         else:
             print("[ ENGINE ] MANGÁ NÃO CONSEGUIU BAIXAR ")
 def main():
@@ -49,7 +50,7 @@ def main():
             if resposta != -1:
                 data[0] = 0
                 data[1] = resposta
-                sleep(5)
+                sleep(2)
                 system(CLEAR)
 
         elif input_usuario == 2:
