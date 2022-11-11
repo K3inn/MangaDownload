@@ -29,7 +29,7 @@ git clone https://github.com/K3inn/MangaDownload
 Depois instale os pacotes necessarios
 ```
 pip install requests
-pip install beautifulsoup4
+pip install bs4
 ```
 
 *PARA TERMUX, CONSIDERE INSTALAR ANTES*
