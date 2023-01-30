@@ -1,7 +1,7 @@
+# -*- coding: utf-8 -*-
 import requests
 import json
 import os
-import controlador_json
 from bs4 import BeautifulSoup
 
 class Mangayabu:
@@ -17,17 +17,16 @@ class Mangayabu:
 
     # Processo de Salvamento
     def __Salvar_Anime(self, bytes, capitulo, caminho=False):
+        caminho_para_salvar = ''
+        if(caminho != False):
+            caminho_para_salvar = os.path.join(caminho, self.GetNome(), capitulo, '/index.jpeg')
+        else:
+            caminho_para_salvar = os.path.join('Download_Padrão', self.GetNome(), capitulo, '/index.jpeg')
+
+        os.makedirs(os.path.dirname(caminho_para_salvar), exist_ok=True)
         for i in bytes:
             img = self.__Request_Anime(bytes[i])
-            if(caminho != False):
-                caminho_para_salvar = f'{caminho}/{self.GetNome()}_{capitulo}/{i}.jpeg'
-            else:
-                caminho_para_salvar = f"{controlador_json.Pegar_diretorio(self.json_obj['chapter_name'])}/{self.json_obj['chapter_name']}_{capitulo}/{i}.jpeg"
-                if caminho_para_salvar == 0:
-                    caminho_para_salvar = f'./Download_Padrão/{self.GetNome()}_{capitulo}/{i}.jpeg'
-            
-            os.makedirs(os.path.dirname(caminho_para_salvar), exist_ok=True)
-            with open(caminho_para_salvar, 'wb') as arquivo:
+            with open(caminho_para_salvar.replace('index.jpeg', f'{i}.jpeg'), 'wb') as arquivo:
                 arquivo.write(img.content)
 
     def Pesquisar_anime(self, nome):

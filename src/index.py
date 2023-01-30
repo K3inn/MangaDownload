@@ -1,4 +1,3 @@
-import controlador_json
 from manga import Mangayabu
 from time import sleep
 from os import system
@@ -54,12 +53,12 @@ def main():
                 system(CLEAR)
 
         elif input_usuario == 2:
-            if data[0] != -1:
+            if data[0] != -1 and diretorio != False:
                 capitulo = int(input("\nCapitulo >> "))
                 Baixar(Manga_engine, data[1], capitulo, diretorio)
                 sleep(5)
                 print("\n")
-            else:print("Oops, Você ainda não buscou uma Mangá\n")
+            else:print("Oops, Você ainda não buscou uma Mangá / Ou não definiu diretorio\n")
 
         elif input_usuario == 3:
             if data[0] != -1:
@@ -71,9 +70,6 @@ def main():
         elif input_usuario == 4:
             if data[0] != -1:
                 diretorio = str(input("\n>> "))
-                dire = controlador_json.Pegar_diretorio(Manga_engine.GetNome())
-                if(dire == 0):
-                    controlador_json.Adicionar_diretorio(Manga_engine.GetNome(), diretorio)
             else:print("Oops, Você ainda não buscou uma Mangá\n")
 
             print("[ ENGINE ] Diretorio Definido\n")
