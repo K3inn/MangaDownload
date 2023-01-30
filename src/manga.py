@@ -21,8 +21,6 @@ class Mangayabu:
             img = self.__Request_Anime(bytes[i])
             if(caminho != False):
                 caminho_para_salvar = f'{caminho}/{self.GetNome()}_{capitulo}/{i}.jpeg'
-                print(caminho)
-                print(caminho_para_salvar)
             else:
                 caminho_para_salvar = f"{controlador_json.Pegar_diretorio(self.json_obj['chapter_name'])}/{self.json_obj['chapter_name']}_{capitulo}/{i}.jpeg"
                 if caminho_para_salvar == 0:
