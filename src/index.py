@@ -55,7 +55,8 @@ def main():
         elif input_usuario == 2:
             if data[0] != -1 and diretorio != False:
                 capitulo = int(input("\nCapitulo >> "))
-                Baixar(Manga_engine, data[1], capitulo, diretorio)
+                mangas = Baixar(Manga_engine, data[1], capitulo, diretorio)
+                print(mangas)
                 sleep(5)
                 print("\n")
             else:print("Oops, Você ainda não buscou uma Mangá / Ou não definiu diretorio\n")
@@ -77,6 +78,7 @@ def main():
         elif input_usuario == 5:
             print("Engine Encerrada")
             break
+
         
         else:
             print("[ ENGINE ] COMANDO INVALIDO\n")
