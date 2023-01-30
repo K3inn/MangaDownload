@@ -19,10 +19,9 @@ class Mangayabu:
     def __Salvar_Anime(self, bytes, capitulo, caminho=False):
         caminho_para_salvar = ''
         if(caminho != False):
-            caminho_para_salvar = os.path.join(caminho, self.GetNome(), capitulo, '/index.jpeg')
+            caminho_para_salvar = f'{caminho}/{self.GetNome()}/{capitulo}/index.jpeg'
         else:
-            caminho_para_salvar = os.path.join('Download_Padrão', self.GetNome(), capitulo, '/index.jpeg')
-
+            caminho_para_salvar = f'Download_Padrão/{self.GetNome()}/{capitulo}/index.jpeg'
         os.makedirs(os.path.dirname(caminho_para_salvar), exist_ok=True)
         for i in bytes:
             img = self.__Request_Anime(bytes[i])
@@ -60,7 +59,7 @@ class Mangayabu:
                 imagens = modificador_html_2.find_all("img")
                 for img in imagens: data_img[img.get('id')] = img.get('src'); 
 
-                self.__Salvar_Anime(data_img, capitulo, caminho=False)
+                self.__Salvar_Anime(data_img, capitulo, caminho)
                 return 0
             except Exception as erro:
                 print(f"[ ENGINE ] {str(erro)}")
