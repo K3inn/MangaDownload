@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>./src/book_icon.png</file>
+    <file>./src/down_icon.png</file>
+  </qresource>
+</RCC>
